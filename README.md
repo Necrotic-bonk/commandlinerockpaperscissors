@@ -1,4 +1,4 @@
-idk just a tictactoe.
+idk just a rock paper scissors.
 to run it you have to have python installed.
 download the code,
 go to the command line,
