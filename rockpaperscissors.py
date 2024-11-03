@@ -3,30 +3,29 @@ import random
 rps = ['rock', 'paper', 'scissors']
 
 def game():
-
-    print("TYPE ROCK, PAPER OR SCISSORS IN LOWERCASE!!!")
-    userinput = input(print("Rock, paper, scissors?             "))
+    userinput = input("Type rock, paper or scissors: ").lower()
     answer = random.choice(rps)
-    str.lower(userinput)
-    print(answer)
+    
+    print("Computer chose:", answer)
+    
     if answer == userinput:
         print("It's a tie!")
-    elif userinput == 'rock':
-        if answer == 'scissors':
-            print("You won!")
-        else:
-            print("You lost!")
-    elif userinput == 'scissors':
-        if answer == 'paper':
-            print("You won!")
-        else:
-            print("You lost!")
-    elif userinput == 'paper':
-        if answer == 'rock':
-            print("You won!")
-        else:
-            print("You lost!")
+        return False
+    
+    elif (userinput == 'rock' and answer == 'scissors') or \
+         (userinput == 'scissors' and answer == 'paper') or \
+         (userinput == 'paper' and answer == 'rock'):
+        print("You won!")
+        return False
+    
+    elif userinput in rps:
+        print("You lost!")
+        return False
+    
     else:
-        print('Type either rock, paper or scissors!')
+        print("Invalid input. Please try again.")
+        return True
 
-game()
+# Loop until a valid game result
+while game():
+    pass
